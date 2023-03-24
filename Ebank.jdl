@@ -1,0 +1,26 @@
+entity Customer {
+    id Long,
+    name String,
+    email String
+}
+
+entity BankAccount{
+    id UUID,
+    created LocalDate,
+    balance Double,
+    status AccountStatus
+}
+
+enum AccountStatus{
+    ACTIVATED , SUSPENDED
+}
+
+
+relationship OneToMany {
+    Customer{BankAccount} to BankAccount
+}
+
+paginate * with infinite-scroll
+paginate * with pagination
+
+service * with serviceImpl
