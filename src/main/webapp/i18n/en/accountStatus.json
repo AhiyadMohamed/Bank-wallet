@@ -1,0 +1,9 @@
+{
+  "bankWalletApp": {
+    "AccountStatus": {
+      "null": "",
+      "ACTIVATED": "ACTIVATED",
+      "SUSPENDED": "SUSPENDED"
+    }
+  }
+}

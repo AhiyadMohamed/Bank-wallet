@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="bankAccount">
+      <h2 data-cy="bankAccountDetailsHeading"><span jhiTranslate="bankWalletApp.bankAccount.detail.title">Bank Account</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="bankWalletApp.bankAccount.id">Id</span></dt>
+        <dd>
+          <span>{{ bankAccount.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="bankWalletApp.bankAccount.created">Created</span></dt>
+        <dd>
+          <span>{{ bankAccount.created | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="bankWalletApp.bankAccount.balance">Balance</span></dt>
+        <dd>
+          <span>{{ bankAccount.balance }}</span>
+        </dd>
+        <dt><span jhiTranslate="bankWalletApp.bankAccount.status">Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'bankWalletApp.AccountStatus.' + bankAccount.status }}">{{ bankAccount.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="bankWalletApp.bankAccount.customer">Customer</span></dt>
+        <dd>
+          <div *ngIf="bankAccount.customer">
+            <a [routerLink]="['/customer', bankAccount.customer.id, 'view']">{{ bankAccount.customer.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/bank-account', bankAccount.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
